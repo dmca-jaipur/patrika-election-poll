@@ -3,12 +3,190 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --cream: #fbfaf4;
+  --paper: #ffffff;
+  --maroon: #7b1e2b;
+  --navy: #17233c;
+  --gold: #b88a2b;
+  --muted: #667085;
+  --border: rgba(23, 35, 60, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: #FDFCF0;
+  margin: 0;
+  background: var(--cream);
+  color: var(--navy);
+  font-family:
+    "Noto Sans Devanagari",
+    system-ui,
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(251, 250, 244, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: block;
+}
+
+.brand-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--maroon);
+  letter-spacing: 0.03em;
+}
+
+.brand-title {
+  margin-top: 2px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.admin-link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.site-footer {
+  margin-top: 70px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-inner {
+  padding-top: 30px;
+  padding-bottom: 35px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-brand {
+  color: var(--maroon);
+  font-weight: 800;
+}
+
+.paper {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 35px rgba(23, 35, 60, 0.06);
+}
+
+.btn-primary {
+  border: 0;
+  border-radius: 10px;
+  background: var(--maroon);
+  color: white;
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid rgba(23, 35, 60, 0.16);
+  border-radius: 10px;
+  background: white;
+  color: var(--navy);
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e9e6dc;
+}
+
+.progress > div {
+  height: 100%;
+  background: var(--maroon);
+  transition: width 0.4s ease;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.gold-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+@media (max-width: 640px) {
+  .container-page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .header-inner {
+    min-height: 68px;
+  }
+
+  .brand-title {
+    font-size: 15px;
+  }
+
+  .admin-link {
+    font-size: 12px;
+  }
 }
